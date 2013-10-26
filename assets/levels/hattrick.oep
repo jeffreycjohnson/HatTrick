@@ -27,7 +27,7 @@
   <LevelValueDefinitions />
   <LayerDefinitions>
     <LayerDefinition xsi:type="TileLayerDefinition">
-      <Name>Grid</Name>
+      <Name>Tiles</Name>
       <Grid>
         <Width>16</Width>
         <Height>16</Height>

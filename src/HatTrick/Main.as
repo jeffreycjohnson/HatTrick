@@ -22,6 +22,7 @@ package HatTrick
 		
 		override public function init():void
 		{
+			Level.init();
 			FP.world = new GameWorld();
 		}
 	}
