@@ -104,6 +104,14 @@ package HatTrick
 				entities.push(GameWorld.adventurer);
 				entities.push(GameWorld.hat);
 			}
+			
+			for each (node in xml.Entities.startclimb)
+			{
+				x = node.@x;
+				y = node.@y;
+				var climbHeight:int = node.@climbLength;
+				entities.push(new Ladder(x, y, climbHeight));
+			}
 		}
 		
 	}

@@ -27,6 +27,7 @@ package HatTrick
 		public static const state_climb:int = 3;
 		public static const state_hatpickup:int = 4;
 		private var previousstate:int;
+		private var toClimb:int;
 		
 		public function Adventurer(x:Number=0, y:Number=0) 
 		{
@@ -38,10 +39,20 @@ package HatTrick
 		
 		override public function update():void
 		{
+			var collidedObject:Entity;
 			if (state == state_walkright)
 			{
 				x += walkspeed;
-				if (collide("tile", x, y) || collide("Pillar", x, y))
+				if (collide("Ladder", x, y))
+				{
+					if ((collidedObject = collide("Ladder", x - 16, y)))
+					{
+						previousstate = state;
+						state = state_climb;
+						toClimb = 16 * (Ladder)(collidedObject).climbHeight * Main.SCALING_FACTOR;
+					}
+				}
+				else if (collide("tile", x, y) || collide("Pillar", x, y))
 				{
 					x -= walkspeed;
 					state = state_walkleft;
@@ -50,7 +61,16 @@ package HatTrick
 			else if (state == state_walkleft)
 			{
 				x -= walkspeed;
-				if (collide("tile", x, y) || collide("Pillar", x, y))
+				if (collide("Ladder", x, y))
+				{
+					if ((collidedObject = collide("Ladder", x + 16, y)))
+					{
+						previousstate = state;
+						state = state_climb;
+						toClimb = 16 * (Ladder)(collidedObject).climbHeight * Main.SCALING_FACTOR;
+					}
+				}
+				else if (collide("tile", x, y) || collide("Pillar", x, y))
 				{
 					x += walkspeed;
 					state = state_walkright;
@@ -62,7 +82,13 @@ package HatTrick
 			}
 			else if (state == state_climb)
 			{
+				toClimb -= climbspeed;
 				y -= climbspeed;
+				if (toClimb <= 0)
+				{
+					y += toClimb;
+					state = (previousstate == state_walkleft ? state_walkright : state_walkleft);
+				}
 			}
 			else if (state == state_hatpickup)
 			{

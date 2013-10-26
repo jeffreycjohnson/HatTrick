@@ -27,7 +27,7 @@ package HatTrick
 		public override function activate():void
 		{
 			if (!activated)
-				FP.world.remove(this);
+				y += 128;
 			activated = true;
 		}
 		

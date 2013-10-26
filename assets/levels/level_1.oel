@@ -642,8 +642,7 @@
   <Entities>
     <player id="0" x="16" y="432" direction="1" />
     <floorplate id="1" x="80" y="448" toggled="False" targetId="5" />
-    <startclimb id="2" x="288" y="448" />
-    <stopclimb id="3" x="288" y="288" direction="0" />
+    <startclimb id="2" x="288" y="448" climbLength="10" />
     <pillar id="4" x="272" y="336" fallblockcount="8" />
     <dispenser id="5" x="304" y="448" direction="0" />
     <lever id="12" x="208" y="440" toggled="False" targetId="4" />
@@ -653,8 +652,7 @@
     <spike id="9" x="112" y="304" direction="0" onbeat="0" offbeat="1" />
     <spike id="10" x="64" y="256" direction="0" onbeat="0" offbeat="1" />
     <spike id="11" x="48" y="256" direction="0" onbeat="0" offbeat="1" />
-    <startclimb id="13" x="16" y="288" />
-    <stopclimb id="14" x="16" y="128" direction="1" />
+    <startclimb id="13" x="16" y="288" climbLength="10" />
     <lever id="15" x="48" y="120" toggled="False" targetId="0" />
     <lever id="16" x="96" y="120" toggled="False" targetId="0" />
     <lever id="17" x="144" y="120" toggled="False" targetId="0" />
