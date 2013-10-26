@@ -23,6 +23,7 @@ package HatTrick
 			
 			type = "Spikes";
 			collidable = true;
+			setHitbox(16, 32);
 			this.y -= 16;
 			if (flipped)
 			{
@@ -49,6 +50,11 @@ package HatTrick
 			{
 				extended = false;
 				sprite.play("retract");
+			}
+			var adventurer:Object;
+			if ((adventurer = extended && collide("adventurer", x, y)))
+			{
+				(Adventurer)(adventurer).die();
 			}
 		}
 		

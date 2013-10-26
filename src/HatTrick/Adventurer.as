@@ -40,6 +40,10 @@ package HatTrick
 		override public function update():void
 		{
 			var collidedObject:Entity;
+			if (state != state_hatpickup && collide("Arrow", x, y))
+			{
+				die();
+			}
 			if (state == state_walkright)
 			{
 				x += walkspeed;
@@ -104,6 +108,11 @@ package HatTrick
 					GameWorld.hat.onHead = true;
 				}
 			}
+		}
+		
+		public function die():void
+		{
+			
 		}
 		
 		public function pickuphat():void
