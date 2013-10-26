@@ -12,7 +12,7 @@ package HatTrick
 	{
 		[Embed(source = "../../assets/wisconsin_john.png")]
 		private const image:Class;
-		private var sprite:Spritemap = new Spritemap(image, 8 * Main.SCALING_FACTOR, 16 * Main.SCALING_FACTOR);
+		private var sprite:Spritemap = new Spritemap(image, 16, 32);
 		
 		private static const walkspeed:Number = 0.25;
 		private static const climbspeed:Number = 0.5;
@@ -49,7 +49,7 @@ package HatTrick
 					{
 						previousstate = state;
 						state = state_climb;
-						toClimb = 16 * (Ladder)(collidedObject).climbHeight * Main.SCALING_FACTOR;
+						toClimb = 32 * (Ladder)(collidedObject).climbHeight;
 					}
 				}
 				else if (collide("tile", x, y) || collide("Pillar", x, y))
@@ -67,7 +67,7 @@ package HatTrick
 					{
 						previousstate = state;
 						state = state_climb;
-						toClimb = 16 * (Ladder)(collidedObject).climbHeight * Main.SCALING_FACTOR;
+						toClimb = 32 * (Ladder)(collidedObject).climbHeight;
 					}
 				}
 				else if (collide("tile", x, y) || collide("Pillar", x, y))

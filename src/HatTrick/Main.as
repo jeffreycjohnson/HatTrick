@@ -3,7 +3,7 @@ package HatTrick
 	import net.flashpunk.Engine;
 	import net.flashpunk.FP;
 	
-	[SWF(width="640", height="320", frameRate = "-1", backgroundColor="#000000")]
+	[SWF(width="960", height="480", frameRate = "-1", backgroundColor="#000000")]
 	
 	/**
 	 * Entry point into the game.
@@ -12,7 +12,7 @@ package HatTrick
 	{
 		public static const SCREEN_WIDTH:int = 320;
 		public static const SCREEN_HEIGHT:int = 160;
-		public static const SCALING_FACTOR:int = 2;
+		public static const SCALING_FACTOR:int = 3;
 		
 		public function Main():void 
 		{
