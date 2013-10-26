@@ -10,6 +10,8 @@ package HatTrick
 		[Embed(source = "../../assets/levels/level_test.oel", mimeType = "application/octet-stream")] public static const testlevel:Class;
 		
 		public static var entities:Array;
+		public static var width:int;
+		public static var height:int;
 		
 		public static function init():void
 		{
@@ -17,6 +19,8 @@ package HatTrick
 			var node:XML;
 			var width:int = xml.@width / Tile.w;
 			var height:int = xml.@height / Tile.h;
+			Level.width = width * Tile.w;
+			Level.height = height * Tile.h;
 			entities = new Array();
 			
 			for each (node in xml.Tiles.tile)

@@ -33,7 +33,7 @@ package HatTrick
 		override public function update():void
 		{
 			super.update();
-			// additional logic here
+			camera.y = Math.min(Level.height - Main.SCREEN_HEIGHT, Math.max(0, adventurer.y + 16 - Main.SCREEN_HEIGHT / 2));
 		}
 		
 	}
