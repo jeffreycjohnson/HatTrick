@@ -26,7 +26,6 @@ package HatTrick
 				var tilex:int = node.@tx;
 				var tiley:int = node.@ty;
 				var t:Tile = new Tile(x * Tile.w, y * Tile.h, tilex, tiley);
-				trace(x, y, tilex, tiley);
 				entities.push(t);
 			}
 		}
