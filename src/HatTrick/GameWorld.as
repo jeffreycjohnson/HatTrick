@@ -4,7 +4,7 @@ package HatTrick
 	import net.flashpunk.FP;
 	
 	/**
-	 * ...
+	 * Main game world. Made exclusively by Jeffrey Johnson.
 	 * @author Jeffrey Johnson
 	 */
 	public class GameWorld extends World 
@@ -28,6 +28,12 @@ package HatTrick
 			add(new Background());
 			
 			FP.screen.color = 0x333333;
+		}
+		
+		override public function update():void
+		{
+			super.update();
+			// additional logic here
 		}
 		
 	}
