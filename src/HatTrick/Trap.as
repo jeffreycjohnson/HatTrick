@@ -17,6 +17,11 @@ package HatTrick
 			
 		}
 		
+		public function activate():void
+		{
+			
+		}
+		
 	}
 
 }

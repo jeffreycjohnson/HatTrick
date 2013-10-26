@@ -1,6 +1,7 @@
 package HatTrick 
 {
 	import net.flashpunk.graphics.Spritemap;
+	import net.flashpunk.FP;
 	
 	/**
 	 * ...
@@ -16,6 +17,11 @@ package HatTrick
 		{
 			super(x, y, sprite);
 			
+		}
+		
+		public override function activate():void
+		{
+			FP.world.add(new Arrow(x, y));
 		}
 		
 	}

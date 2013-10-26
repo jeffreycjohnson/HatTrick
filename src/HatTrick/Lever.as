@@ -6,7 +6,7 @@ package HatTrick
 	 * ...
 	 * @author Jeffrey Johnson
 	 */
-	public class Lever extends Trap 
+	public class Lever extends Activator 
 	{
 		[Embed(source = "../../assets/lever.png")]
 		private const image:Class;

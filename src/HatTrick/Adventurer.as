@@ -7,7 +7,7 @@ package HatTrick
 	/**
 	 * The greatest adventurer in all the land.
 	 */
-	public class Adventuter extends Entity 
+	public class Adventurer extends Entity 
 	{
 		[Embed(source = "../../assets/wisconsin_john.png")]
 		private const image:Class;
@@ -24,7 +24,7 @@ package HatTrick
 		public static const state_climb:int = 3;
 		public static const state_hatpickup:int = 4;
 		
-		public function Adventuter(x:Number=0, y:Number=0) 
+		public function Adventurer(x:Number=0, y:Number=0) 
 		{
 			super(x, y, sprite);
 			type = "adventurer";

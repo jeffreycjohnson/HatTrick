@@ -9,7 +9,7 @@ package HatTrick
 	 */
 	public class GameWorld extends World 
 	{
-		public static var adventurer:Adventuter;
+		public static var adventurer:Adventurer;
 		public static var hat:Hat;
 		
 		public function GameWorld() 
