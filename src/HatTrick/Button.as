@@ -19,7 +19,7 @@ package HatTrick
 			type = "Button";
 			collidable = true;
 			
-			setHitbox(16, 8);
+			setHitbox(8, 8, -4);
 		}
 		
 		override public function update():void 

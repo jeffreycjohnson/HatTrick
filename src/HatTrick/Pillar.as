@@ -1,20 +1,24 @@
 package HatTrick 
 {
-	import net.flashpunk.Entity;
-	import net.flashpunk.Graphic;
-	import net.flashpunk.Mask;
+	import net.flashpunk.graphics.Spritemap;
 	
 	/**
 	 * ...
 	 * @author Jeffrey Johnson
 	 */
-	public class Pillar extends Entity 
+	public class Pillar extends Trap 
 	{
+		[Embed(source = "../../assets/pillar.png")]
+		private const image:Class;
+		private var sprite:Spritemap = new Spritemap(image);
 		
-		public function Pillar(x:Number=0, y:Number=0, graphic:Graphic=null, mask:Mask=null) 
+		public function Pillar(x:Number=0, y:Number=0) 
 		{
-			super(x, y, graphic, mask);
+			super(x, y, sprite);
 			
+			type = "Pillar";
+			collidable = true;
+			setHitbox(16, 160);
 		}
 		
 	}
