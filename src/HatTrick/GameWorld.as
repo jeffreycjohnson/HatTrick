@@ -16,6 +16,11 @@ package HatTrick
 		{
 			super();
 			
+			for (var i:int = 0; i < Level.entities.length; i++)
+			{
+				add(Level.entities[i]);
+			}
+			
 			adventurer = new Adventuter();
 			add(adventurer);
 			hat = new Hat();

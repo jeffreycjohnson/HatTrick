@@ -1,0 +1,15 @@
+<level width="320" height="240">
+  <Tiles tileset="cave" exportMode="XMLCoords">
+    <tile x="6" y="6" tx="0" ty="0" />
+    <tile x="6" y="7" tx="0" ty="2" />
+    <tile x="7" y="6" tx="1" ty="0" />
+    <tile x="7" y="7" tx="1" ty="1" />
+    <tile x="7" y="8" tx="0" ty="2" />
+    <tile x="8" y="6" tx="1" ty="0" />
+    <tile x="8" y="7" tx="1" ty="1" />
+    <tile x="8" y="8" tx="1" ty="2" />
+    <tile x="9" y="6" tx="2" ty="0" />
+    <tile x="9" y="7" tx="2" ty="1" />
+    <tile x="9" y="8" tx="2" ty="2" />
+  </Tiles>
+</level>
