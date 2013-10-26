@@ -24,6 +24,9 @@ package HatTrick
 			entities = new Array();
 			var x:int;
 			var y:int;
+			var targetId:int;
+			var object:Object;
+			var id:int;
 			
 			for each (node in xml.Tiles.tile)
 			{
@@ -35,18 +38,11 @@ package HatTrick
 				entities.push(t);
 			}
 			
-			for each (node in xml.Entities.lever)
-			{
-				x = node.@x;
-				y = node.@y;
-				entities.push(new Lever(x, y));
-			}
-			
 			for each (node in xml.Entities.dispenser)
 			{
 				x = node.@x;
 				y = node.@y;
-				var id:int = node.@id;
+				id = node.@id;
 				var arrowShooter:ArrowShooter = new ArrowShooter(x, y);
 				arrowShooter.id = id;
 				entities.push(arrowShooter);
@@ -59,16 +55,41 @@ package HatTrick
 				entities.push(new Spikes(x, y));
 			}
 			
+			for each (node in xml.Entities.pillar)
+			{
+				x = node.@x;
+				y = node.@y;
+				id = node.@id;
+				var pillar:Pillar = new Pillar(x, y);
+				pillar.id = id;
+				entities.push(pillar);
+			}
+			
 			for each (node in xml.Entities.floorplate)
 			{
 				x = node.@x;
 				y = node.@y;
-				var targetId:int = node.@targetId;
-				for each (var object:Object in entities)
+				targetId = node.@targetId;
+				for each (object in entities)
 				{
-					if (object is ArrowShooter && object.id == targetId)
+					if (object is Trap && object.id == targetId)
 					{
 						entities.push(new Button(x, y, (Trap)(object)));
+						break;
+					}
+				}
+			}
+			
+			for each (node in xml.Entities.lever)
+			{
+				x = node.@x;
+				y = node.@y;
+				targetId = node.@targetId;
+				for each (object in entities)
+				{
+					if (object is Trap && object.id == targetId)
+					{
+						entities.push(new Lever(x, y, (Trap)(object)));
 						break;
 					}
 				}
@@ -82,13 +103,6 @@ package HatTrick
 				GameWorld.hat = new Hat(x, y);
 				entities.push(GameWorld.adventurer);
 				entities.push(GameWorld.hat);
-			}
-			
-			for each (node in xml.Entities.pillar)
-			{
-				x = node.@x;
-				y = node.@y;
-				entities.push(new Pillar(x, y));
 			}
 		}
 		
