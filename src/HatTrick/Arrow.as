@@ -1,18 +1,19 @@
 package HatTrick 
 {
+	import net.flashpunk.Entity;
 	import net.flashpunk.graphics.Spritemap;
 	
 	/**
 	 * ...
 	 * @author Jeffrey Johnson
 	 */
-	public class Spikes extends Trap 
+	public class Arrow extends Entity 
 	{
-		[Embed(source = "../../assets/spikes.png")]
+		[Embed(source = "../../assets/arrow.png")]
 		private const image:Class;
 		private var sprite:Spritemap = new Spritemap(image);
 		
-		public function Spikes(x:Number=0, y:Number=0) 
+		public function Arrow(x:Number=0, y:Number=0) 
 		{
 			super(x, y, sprite);
 			
