@@ -516,8 +516,8 @@
     <tile x="17" y="3" tx="0" ty="7" />
     <tile x="17" y="4" tx="0" ty="7" />
     <tile x="17" y="5" tx="0" ty="7" />
-    <tile x="17" y="6" tx="2" ty="4" />
-    <tile x="17" y="7" tx="2" ty="5" />
+    <tile x="17" y="6" tx="0" ty="7" />
+    <tile x="17" y="7" tx="0" ty="7" />
     <tile x="17" y="8" tx="1" ty="0" />
     <tile x="17" y="9" tx="1" ty="1" />
     <tile x="17" y="10" tx="1" ty="1" />
@@ -657,5 +657,6 @@
     <lever id="16" x="96" y="120" toggled="False" targetId="0" order="4" />
     <lever id="17" x="144" y="120" toggled="False" targetId="0" order="3" />
     <lever id="18" x="192" y="120" toggled="False" targetId="0" order="1" />
+    <goal id="3" x="264" y="96" />
   </Entities>
 </level>
