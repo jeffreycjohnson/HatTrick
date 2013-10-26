@@ -1,8 +1,7 @@
 package HatTrick 
 {
 	import net.flashpunk.Entity;
-	import net.flashpunk.Graphic;
-	import net.flashpunk.Mask;
+	import net.flashpunk.graphics.Spritemap;
 	
 	/**
 	 * ...
@@ -10,10 +9,13 @@ package HatTrick
 	 */
 	public class Arrow extends Entity 
 	{
+		[Embed(source = "../../assets/arrow.png")]
+		private const image:Class;
+		private var sprite:Spritemap = new Spritemap(image);
 		
-		public function Arrow(x:Number=0, y:Number=0, graphic:Graphic=null, mask:Mask=null) 
+		public function Arrow(x:Number=0, y:Number=0) 
 		{
-			super(x, y, graphic, mask);
+			super(x, y, sprite);
 			
 		}
 		
