@@ -19,7 +19,8 @@ package HatTrick
 		private static const stairsspeed:Number = 0.25;
 		
 		private var count:int = 0;
-		private static var walkanimspeed:Number = 15;
+		private static const walkanimspeed:Number = 15;
+		private static const climbanimspeed:Number = 15;
 		
 		public var state:int = state_walkright;
 		public static const state_walkright:int = 0;
@@ -66,6 +67,7 @@ package HatTrick
 						previousstate = state;
 						state = state_climb;
 						toClimb = 32 * (Ladder)(collidedObject).climbHeight;
+						count = 0;
 					}
 				}
 				else if (collide("tile", x, y) || collide("Pillar", x, y))
@@ -85,6 +87,7 @@ package HatTrick
 						previousstate = state;
 						state = state_climb;
 						toClimb = 32 * (Ladder)(collidedObject).climbHeight;
+						sprite.setFrame(0, 2);
 					}
 				}
 				else if (collide("tile", x, y) || collide("Pillar", x, y))
@@ -100,6 +103,18 @@ package HatTrick
 			}
 			else if (state == state_climb)
 			{
+				if (count == climbanimspeed * 2 || count == 0)
+				{
+					sprite.setFrame(0, 2);
+					sprite.flipped = false;
+					count = 0;
+				}
+				else if (count == climbanimspeed)
+				{
+					sprite.setFrame(0, 2);
+					sprite.flipped = true;
+				}
+				count++;
 				toClimb -= climbspeed;
 				y -= climbspeed;
 				if (toClimb <= 0)
