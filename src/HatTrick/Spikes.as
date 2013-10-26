@@ -1,7 +1,6 @@
 package HatTrick 
 {
-	import net.flashpunk.Graphic;
-	import net.flashpunk.Mask;
+	import net.flashpunk.graphics.Spritemap;
 	
 	/**
 	 * ...
@@ -9,10 +8,13 @@ package HatTrick
 	 */
 	public class Spikes extends Trap 
 	{
+		[Embed(source = "../../assets/spikes.png")]
+		private const image:Class;
+		private var sprite:Spritemap = new Spritemap(image);
 		
-		public function Spikes(x:Number=0, y:Number=0, graphic:Graphic=null, mask:Mask=null) 
+		public function Spikes(x:Number=0, y:Number=0) 
 		{
-			super(x, y, graphic, mask);
+			super(x, y, sprite);
 			
 		}
 		
