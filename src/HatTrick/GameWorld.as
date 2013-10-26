@@ -1,6 +1,7 @@
 package HatTrick 
 {
 	import net.flashpunk.World;
+	import net.flashpunk.FP;
 	
 	/**
 	 * ...
@@ -8,11 +9,20 @@ package HatTrick
 	 */
 	public class GameWorld extends World 
 	{
+		public static var adventurer:Adventuter;
+		public static var hat:Hat;
 		
 		public function GameWorld() 
 		{
 			super();
 			
+			adventurer = new Adventuter();
+			add(adventurer);
+			hat = new Hat();
+			add(hat);
+			add(new Background());
+			
+			FP.screen.color = 0x333333;
 		}
 		
 	}
