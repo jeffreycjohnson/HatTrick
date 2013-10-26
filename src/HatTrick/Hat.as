@@ -19,7 +19,7 @@ package HatTrick
 		private var onGround:Boolean = false;
 		private var velocity:Point = new Point();
 		
-		private static const adventureroffset:Point = new Point(0, 0);
+		private static const adventureroffset:Point = new Point(0, -3);
 		public static const inputkey:int = Key.SPACE;
 		
 		private static const popyspeed:Number = 0.6;
@@ -57,9 +57,11 @@ package HatTrick
 			{
 				x = GameWorld.adventurer.x + adventureroffset.x;
 				y = GameWorld.adventurer.y + adventureroffset.y;
+				if (sprite.alpha == 1) sprite.alpha = 0;
 			}
 			else
 			{
+				if (sprite.alpha == 0) sprite.alpha = 1;
 				count++; // animate according to value of count
 				if (!onGround)
 				{
