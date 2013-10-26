@@ -18,8 +18,6 @@ package HatTrick
 			if (count % INTERVAL == 0)
 			{
 				if (++Beat > BeatMax) Beat = 1;
-				
-				trace(Beat == 1 ? "onbeat" : "offbeat", Beat);
 			}
 			
 			

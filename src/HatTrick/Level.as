@@ -38,6 +38,16 @@ package HatTrick
 				entities.push(t);
 			}
 			
+			for each (node in xml.Paintings.tile)
+			{
+				x = node.@x;
+				y = node.@y;
+				var paintingx:int = node.@tx;
+				var paintingy:int = node.@ty;
+				var p:PaintingTile = new PaintingTile(x * PaintingTile.w, y * PaintingTile.h, paintingx, paintingy);
+				entities.push(p);
+			}
+			
 			for each (node in xml.Entities.dispenser)
 			{
 				x = node.@x;
