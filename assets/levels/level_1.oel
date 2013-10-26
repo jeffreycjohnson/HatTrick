@@ -645,7 +645,7 @@
     <startclimb id="2" x="288" y="448" climbLength="10" />
     <pillar id="4" x="272" y="336" fallblockcount="8" />
     <dispenser id="5" x="304" y="448" direction="0" />
-    <lever id="12" x="208" y="440" toggled="False" targetId="4" />
+    <lever id="12" x="208" y="440" toggled="False" targetId="4" order="10" />
     <spike id="6" x="224" y="304" direction="0" onbeat="1" offbeat="2" />
     <spike id="7" x="176" y="256" direction="3" onbeat="3" offbeat="4" />
     <spike id="8" x="128" y="304" direction="0" onbeat="5" offbeat="7" />
@@ -653,9 +653,9 @@
     <spike id="10" x="64" y="256" direction="3" onbeat="9" offbeat="11" />
     <spike id="11" x="48" y="256" direction="3" onbeat="10" offbeat="12" />
     <startclimb id="13" x="16" y="288" climbLength="10" />
-    <lever id="15" x="48" y="120" toggled="False" targetId="0" />
-    <lever id="16" x="96" y="120" toggled="False" targetId="0" />
-    <lever id="17" x="144" y="120" toggled="False" targetId="0" />
-    <lever id="18" x="192" y="120" toggled="False" targetId="0" />
+    <lever id="15" x="48" y="120" toggled="False" targetId="0" order="2" />
+    <lever id="16" x="96" y="120" toggled="False" targetId="0" order="4" />
+    <lever id="17" x="144" y="120" toggled="False" targetId="0" order="3" />
+    <lever id="18" x="192" y="120" toggled="False" targetId="0" order="1" />
   </Entities>
 </level>

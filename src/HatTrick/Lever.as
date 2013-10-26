@@ -12,6 +12,9 @@ package HatTrick
 		private const image:Class;
 		private var sprite:Spritemap = new Spritemap(image, 16);
 		
+		private static var leverSequencePosition:int = 0;
+		public var order:int;
+		
 		public function Lever(x:Number=0, y:Number=0, target:Trap=null) 
 		{
 			super(x, y, sprite, target);
@@ -28,12 +31,15 @@ package HatTrick
 		{
 			if (collide("Hat", x, y))
 			{
+				if (leverSequencePosition == order - 1)
+					leverSequencePosition++;
+				else if(leverSequencePosition != order)
+					leverSequencePosition = 0;
 				activate();
 				sprite.frame = 0;
 			}
 			super.update();
 		}
-		
 	}
 
 }

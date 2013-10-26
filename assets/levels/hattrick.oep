@@ -16,7 +16,7 @@
     <Width>3200</Width>
     <Height>2400</Height>
   </LevelMaximumSize>
-  <Filename>C:\Users\Traynor Traynor\Documents\GitHub\HatTrick\assets\levels\hattrick.oep</Filename>
+  <Filename>C:\Users\Jeffrey\Documents\GitHub\HatTrick\assets\levels\hattrick.oep</Filename>
   <AngleMode>Radians</AngleMode>
   <CameraEnabled>false</CameraEnabled>
   <CameraSize>
@@ -98,6 +98,7 @@
       <ValueDefinitions>
         <ValueDefinition xsi:type="BoolValueDefinition" Name="toggled" Default="false" />
         <ValueDefinition xsi:type="IntValueDefinition" Name="targetId" Default="0" Min="0" Max="100" ShowSlider="false" />
+        <ValueDefinition xsi:type="IntValueDefinition" Name="order" Default="0" Min="0" Max="100" ShowSlider="false" />
       </ValueDefinitions>
       <NodesDefinition Enabled="false" Limit="-1" DrawMode="None" Ghost="false" />
     </EntityDefinition>

@@ -98,11 +98,14 @@ package HatTrick
 				x = node.@x;
 				y = node.@y;
 				targetId = node.@targetId;
+				var order:int = node.@order;
 				for each (object in entities)
 				{
 					if (object is Trap && object.id == targetId)
 					{
-						entities.push(new Lever(x, y, (Trap)(object)));
+						var lever:Lever = new Lever(x, y, (Trap)(object));
+						lever.order = order;
+						entities.push(lever);
 						break;
 					}
 				}
