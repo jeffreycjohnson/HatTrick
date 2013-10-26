@@ -19,6 +19,8 @@ package HatTrick
 		public function Hat(x:Number=0, y:Number=0) 
 		{
 			super(x, y, sprite);
+			type = "Hat";
+			collidable = true;
 		}
 		
 		override public function update():void

@@ -16,6 +16,8 @@ package HatTrick
 		{
 			super(x, y, sprite);
 			
+			type = "Lever";
+			collidable = true;
 		}
 		
 	}

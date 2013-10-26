@@ -17,6 +17,8 @@ package HatTrick
 		{
 			super(x, y, sprite);
 			
+			type = "Arrow";
+			collidable = true;
 		}
 		
 	}

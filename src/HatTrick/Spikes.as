@@ -16,6 +16,8 @@ package HatTrick
 		{
 			super(x, y, sprite);
 			
+			type = "Spikes";
+			collidable = true;
 		}
 		
 	}

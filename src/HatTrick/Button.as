@@ -16,6 +16,9 @@ package HatTrick
 		{
 			super(x, y, sprite);
 			
+			type = "Button";
+			collidable = true;
+			
 		}
 		
 	}
