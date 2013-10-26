@@ -9,7 +9,7 @@ package HatTrick
 		private static var count:Number = 0;
 		
 		// number of frames between each beat
-		private static const INTERVAL:Number = 30;
+		private static const INTERVAL:Number = 26;
 		
 		public static function Update():void
 		{

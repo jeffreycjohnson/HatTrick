@@ -17,6 +17,9 @@ package HatTrick
 		
 		private var extended:Boolean;
 		
+		private var animCount:Number;
+		private const FRAME_LENGTH:Number = 4;
+		
 		public function Spikes(x:Number=0, y:Number=0, flipped:Boolean=false, onBeat:Number=1, offBeat:Number=2) 
 		{
 			super(x, y, sprite);
@@ -35,24 +38,37 @@ package HatTrick
 			this.offBeat = offBeat;
 			extended = false;
 			
-			sprite.add("extend", [2, 1, 0], 6, false);
-			sprite.add("retract", [0, 1, 2], 6, false);
+			animCount = -1;
 		}
 		
 		override public function update():void
 		{
+			if (animCount >= 0)
+			{
+				animCount ++;
+				
+				if (animCount >= FRAME_LENGTH * 2)
+				{
+					animCount = -1;
+					sprite.frame = extended ? 0 : 2;
+				}
+				
+				if (animCount >= FRAME_LENGTH) sprite.frame = 1;
+			}
+			
 			if (Metronome.Beat == onBeat && !extended)
 			{
 				extended = true;
-				sprite.play("extend");
+				animCount = 0;
 			}
 			else if (Metronome.Beat == offBeat && extended)
 			{
 				extended = false;
-				sprite.play("retract");
+				animCount = 0;
 			}
+			
 			var adventurer:Object;
-			if ((adventurer = extended && collide("adventurer", x, y)))
+			if (extended && (adventurer = collide("adventurer", x, y)))
 			{
 				(Adventurer)(adventurer).die();
 			}
