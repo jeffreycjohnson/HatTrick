@@ -21,8 +21,6 @@ package HatTrick
 				add(Level.entities[i]);
 			}
 			
-			add(new Background());
-			
 			FP.screen.color = 0x333333;
 		}
 		

@@ -20,13 +20,18 @@
     </define>
     <verbose-stacktraces>true</verbose-stacktraces>
     <source-path append="true">
+<<<<<<< HEAD
       <path-element>C:\Users\Traynor Traynor\Documents\GitHub\HatTrick\src</path-element>
       <path-element>C:\Users\Traynor Traynor\Documents\GitHub\HatTrick\lib</path-element>
+=======
+      <path-element>C:\Users\Conrad\Documents\HatTrick\src</path-element>
+      <path-element>C:\Users\Conrad\Documents\HatTrick\lib</path-element>
+>>>>>>> 5770643f3e39728b6b5e2e223b25a22fe6ca1f60
       <path-element>C:\Program Files (x86)\FlashDevelop\Library\AS3\classes</path-element>
     </source-path>
   </compiler>
   <file-specs>
-    <path-element>C:\Users\Traynor Traynor\Documents\GitHub\HatTrick\src\HatTrick\Main.as</path-element>
+    <path-element>C:\Users\Conrad\Documents\HatTrick\src\HatTrick\Main.as</path-element>
   </file-specs>
   <default-background-color>#FFFFFF</default-background-color>
   <default-frame-rate>30</default-frame-rate>
