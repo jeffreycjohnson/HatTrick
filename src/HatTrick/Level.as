@@ -52,7 +52,8 @@ package HatTrick
 			{
 				x = node.@x;
 				y = node.@y;
-				entities.push(new Spikes(x, y));
+				var flipped:Boolean = node.@direction == 3;
+				entities.push(new Spikes(x, y, flipped));
 			}
 			
 			for each (node in xml.Entities.pillar)
