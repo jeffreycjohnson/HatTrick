@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <OgmoVersion>2.1.0.5</OgmoVersion>
+  <OgmoVersion>2.1.0.6</OgmoVersion>
   <Name>Hat Trick</Name>
   <BackgroundColor A="255" R="128" G="128" B="128" />
   <GridColor A="255" R="255" G="255" B="255" />
@@ -16,7 +16,7 @@
     <Width>3200</Width>
     <Height>2400</Height>
   </LevelMaximumSize>
-  <Filename>C:\Users\Jeffrey\Documents\GitHub\HatTrick\assets\levels\hattrick.oep</Filename>
+  <Filename>C:\Users\Jason\Documents\Flash\hattrick\assets\levels\hattrick.oep</Filename>
   <AngleMode>Radians</AngleMode>
   <CameraEnabled>false</CameraEnabled>
   <CameraSize>
@@ -28,6 +28,18 @@
   <LayerDefinitions>
     <LayerDefinition xsi:type="TileLayerDefinition">
       <Name>Tiles</Name>
+      <Grid>
+        <Width>16</Width>
+        <Height>16</Height>
+      </Grid>
+      <ScrollFactor>
+        <X>1</X>
+        <Y>1</Y>
+      </ScrollFactor>
+      <ExportMode>XMLCoords</ExportMode>
+    </LayerDefinition>
+    <LayerDefinition xsi:type="TileLayerDefinition">
+      <Name>Paintings</Name>
       <Grid>
         <Width>16</Width>
         <Height>16</Height>
@@ -54,6 +66,15 @@
     <Tileset>
       <Name>cave</Name>
       <FilePath>..\cave_terrain.png</FilePath>
+      <TileSize>
+        <Width>16</Width>
+        <Height>16</Height>
+      </TileSize>
+      <TileSep>0</TileSep>
+    </Tileset>
+    <Tileset>
+      <Name>paintings</Name>
+      <FilePath>..\paintings.png</FilePath>
       <TileSize>
         <Width>16</Width>
         <Height>16</Height>
