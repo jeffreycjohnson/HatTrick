@@ -19,6 +19,8 @@ package HatTrick
 			type = "Lever";
 			collidable = true;
 			
+			sprite.frame = 1;
+			
 			setHitbox(8, 1, -4, -8);
 		}
 		
@@ -27,7 +29,7 @@ package HatTrick
 			if (collide("Hat", x, y))
 			{
 				activate();
-				sprite.frame = 1;
+				sprite.frame = 0;
 			}
 			super.update();
 		}

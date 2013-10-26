@@ -30,6 +30,9 @@ package HatTrick
 		{
 			super.update();
 			camera.y = Math.min(Level.height - Main.SCREEN_HEIGHT, Math.max(0, adventurer.y + 16 - Main.SCREEN_HEIGHT / 2));
+			
+			// update metronome
+			Metronome.Update();
 		}
 		
 	}

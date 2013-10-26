@@ -9,7 +9,7 @@ package HatTrick
 	 */
 	public class ArrowShooter extends Trap 
 	{
-		[Embed(source = "../../assets/ArrowShooter.png")]
+		[Embed(source = "../../assets/arrow_shooter_inset.png")]
 		private const image:Class;
 		private var sprite:Spritemap = new Spritemap(image);
 		

@@ -47,13 +47,15 @@ package HatTrick
 				arrowShooter.id = id;
 				entities.push(arrowShooter);
 			}
-			
+						
 			for each (node in xml.Entities.spike)
 			{
 				x = node.@x;
 				y = node.@y;
 				var flipped:Boolean = node.@direction == 3;
-				entities.push(new Spikes(x, y, flipped));
+				entities.push(new Spikes(x, y, flipped, node.@onbeat, node.@offbeat));
+								
+				if (node.@offbeat > Metronome.BeatMax) Metronome.BeatMax = node.@offbeat;
 			}
 			
 			for each (node in xml.Entities.pillar)
