@@ -40,7 +40,6 @@ package HatTrick
 		
 		override public function update():void
 		{
-			var collidedObject:Entity;
 			if (state == state_walkright || state == state_walkleft)
 			{
 				if (count == walkanimspeed) sprite.setFrame(1, 0);
@@ -51,7 +50,12 @@ package HatTrick
 				}
 				count++;
 			}
-			
+			if (state != state_hatpickup && collide("Arrow", x, y))
+			{
+				die();
+			}
+
+			var collidedObject:Entity;
 			if (state == state_walkright)
 			{
 				x += walkspeed;
@@ -123,6 +127,11 @@ package HatTrick
 					count = 0;
 				}
 			}
+		}
+		
+		public function die():void
+		{
+			
 		}
 		
 		public function pickuphat():void
