@@ -9,7 +9,7 @@ package HatTrick
 	 */
 	public class GameWorld extends World 
 	{
-		public static var adventurer:Adventuter;
+		public static var adventurer:Adventurer;
 		public static var hat:Hat;
 		
 		public function GameWorld() 
@@ -21,7 +21,7 @@ package HatTrick
 				add(Level.entities[i]);
 			}
 			
-			adventurer = new Adventuter();
+			adventurer = new Adventurer();
 			add(adventurer);
 			hat = new Hat();
 			add(hat);

@@ -6,7 +6,7 @@ package HatTrick
 	 * ...
 	 * @author Jeffrey Johnson
 	 */
-	public class Button extends Trap 
+	public class Button extends Activator 
 	{
 		[Embed(source = "../../assets/button.png")]
 		private const image:Class;
