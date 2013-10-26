@@ -45,8 +45,8 @@ package HatTrick
 			{
 				onHead = false;
 				velocity.y = -popyspeed;
-				if (GameWorld.adventurer.state == Adventuter.state_walkright) velocity.x = -popxspeed;
-				else if (GameWorld.adventurer.state == Adventuter.state_walkleft) velocity.x = popxspeed;
+				if (GameWorld.adventurer.state == Adventurer.state_walkright) velocity.x = -popxspeed;
+				else if (GameWorld.adventurer.state == Adventurer.state_walkleft) velocity.x = popxspeed;
 			}
 			
 			if (onHead)

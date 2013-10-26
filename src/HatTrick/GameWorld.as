@@ -21,7 +21,7 @@ package HatTrick
 				add(Level.entities[i]);
 			}
 			
-			adventurer = new Adventuter(64, 144);
+			adventurer = new Adventurer(64, 144);
 			add(adventurer);
 			hat = new Hat();
 			add(hat);
