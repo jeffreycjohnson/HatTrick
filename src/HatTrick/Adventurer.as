@@ -105,7 +105,9 @@ package HatTrick
 				if (toClimb <= 0)
 				{
 					y += toClimb;
-					state = (previousstate == state_walkleft ? state_walkright : state_walkleft);
+					state = previousstate;
+					if (state == state_walkleft) sprite.flipped = true;
+					else if (state == state_walkright) sprite.flipped = false;
 				}
 			}
 			else if (state == state_hatpickup)
