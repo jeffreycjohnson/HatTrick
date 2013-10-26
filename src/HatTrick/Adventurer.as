@@ -41,7 +41,7 @@ package HatTrick
 			if (state == state_walkright)
 			{
 				x += walkspeed;
-				if (collide("tile", x, y))
+				if (collide("tile", x, y) || collide("Pillar", x, y))
 				{
 					x -= walkspeed;
 					state = state_walkleft;
@@ -50,7 +50,7 @@ package HatTrick
 			else if (state == state_walkleft)
 			{
 				x -= walkspeed;
-				if (collide("tile", x, y))
+				if (collide("tile", x, y) || collide("Pillar", x, y))
 				{
 					x += walkspeed;
 					state = state_walkright;
