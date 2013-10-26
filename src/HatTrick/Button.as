@@ -19,6 +19,20 @@ package HatTrick
 			type = "Button";
 			collidable = true;
 			
+			setHitbox(16, 8);
+		}
+		
+		override public function update():void 
+		{
+			if (collide("adventurer", x, y))
+			{
+				activate();
+			}
+			else if (collide("Hat", x, y))
+			{
+				activate();
+			}
+			super.update();
 		}
 		
 	}

@@ -18,15 +18,6 @@ package HatTrick
 			boundTrap = trap;
 		}
 		
-		override public function update():void 
-		{
-			if (collide("adventurer", x, y))
-			{
-				activate();
-			}
-			super.update();
-		}
-		
 		public function activate():void 
 		{
 			boundTrap.activate();

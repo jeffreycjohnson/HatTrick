@@ -19,6 +19,13 @@ package HatTrick
 			
 			type = "Arrow";
 			collidable = true;
+			setHitbox(16, 8);
+		}
+		
+		override public function update():void 
+		{
+			x -= 3;
+			super.update();
 		}
 		
 	}
