@@ -16,7 +16,7 @@
     <Width>3200</Width>
     <Height>2400</Height>
   </LevelMaximumSize>
-  <Filename>C:\Users\Traynor Traynor\Documents\GitHub\HatTrick\assets\levels\hattrick.oep</Filename>
+  <Filename>C:\Users\Jason\Documents\Flash\hattrick\assets\levels\hattrick.oep</Filename>
   <AngleMode>Radians</AngleMode>
   <CameraEnabled>false</CameraEnabled>
   <CameraSize>
@@ -38,6 +38,17 @@
       </ScrollFactor>
       <ExportMode>XMLCoords</ExportMode>
     </LayerDefinition>
+    <LayerDefinition xsi:type="EntityLayerDefinition">
+      <Name>Entities</Name>
+      <Grid>
+        <Width>8</Width>
+        <Height>8</Height>
+      </Grid>
+      <ScrollFactor>
+        <X>1</X>
+        <Y>1</Y>
+      </ScrollFactor>
+    </LayerDefinition>
   </LayerDefinitions>
   <Tilesets>
     <Tileset>
@@ -50,5 +61,159 @@
       <TileSep>0</TileSep>
     </Tileset>
   </Tilesets>
-  <EntityDefinitions />
+  <EntityDefinitions>
+    <EntityDefinition Name="lever" Limit="-1" ResizableX="false" ResizableY="false" Rotatable="false" RotateIncrement="15">
+      <Size>
+        <Width>16</Width>
+        <Height>16</Height>
+      </Size>
+      <Origin>
+        <X>0</X>
+        <Y>0</Y>
+      </Origin>
+      <ImageDefinition DrawMode="Image" ImagePath="..\lever.png" Tiled="true">
+        <RectColor A="255" R="0" G="255" B="255" />
+      </ImageDefinition>
+      <ValueDefinitions>
+        <ValueDefinition xsi:type="BoolValueDefinition" Name="toggled" Default="false" />
+      </ValueDefinitions>
+      <NodesDefinition Enabled="false" Limit="-1" DrawMode="None" Ghost="false" />
+    </EntityDefinition>
+    <EntityDefinition Name="dispenser" Limit="-1" ResizableX="false" ResizableY="false" Rotatable="false" RotateIncrement="15">
+      <Size>
+        <Width>16</Width>
+        <Height>16</Height>
+      </Size>
+      <Origin>
+        <X>0</X>
+        <Y>0</Y>
+      </Origin>
+      <ImageDefinition DrawMode="Image" ImagePath="..\arrow_shooter_inset.png" Tiled="true">
+        <RectColor A="255" R="0" G="128" B="0" />
+      </ImageDefinition>
+      <ValueDefinitions>
+        <ValueDefinition xsi:type="IntValueDefinition" Name="direction" Default="0" Min="0" Max="3" ShowSlider="true" />
+      </ValueDefinitions>
+      <NodesDefinition Enabled="false" Limit="-1" DrawMode="None" Ghost="false" />
+    </EntityDefinition>
+    <EntityDefinition Name="spike" Limit="-1" ResizableX="false" ResizableY="false" Rotatable="false" RotateIncrement="15">
+      <Size>
+        <Width>16</Width>
+        <Height>16</Height>
+      </Size>
+      <Origin>
+        <X>0</X>
+        <Y>0</Y>
+      </Origin>
+      <ImageDefinition DrawMode="Rectangle" ImagePath="" Tiled="false">
+        <RectColor A="255" R="255" G="0" B="0" />
+      </ImageDefinition>
+      <ValueDefinitions>
+        <ValueDefinition xsi:type="IntValueDefinition" Name="direction" Default="0" Min="0" Max="3" ShowSlider="true" />
+        <ValueDefinition xsi:type="IntValueDefinition" Name="onbeat" Default="0" Min="0" Max="100" ShowSlider="true" />
+        <ValueDefinition xsi:type="IntValueDefinition" Name="offbeat" Default="1" Min="0" Max="100" ShowSlider="true" />
+      </ValueDefinitions>
+      <NodesDefinition Enabled="false" Limit="-1" DrawMode="None" Ghost="false" />
+    </EntityDefinition>
+    <EntityDefinition Name="stair" Limit="-1" ResizableX="false" ResizableY="false" Rotatable="false" RotateIncrement="15">
+      <Size>
+        <Width>8</Width>
+        <Height>80</Height>
+      </Size>
+      <Origin>
+        <X>0</X>
+        <Y>0</Y>
+      </Origin>
+      <ImageDefinition DrawMode="Rectangle" ImagePath="" Tiled="false">
+        <RectColor A="255" R="255" G="0" B="128" />
+      </ImageDefinition>
+      <ValueDefinitions>
+        <ValueDefinition xsi:type="IntValueDefinition" Name="level" Default="0" Min="0" Max="10" ShowSlider="true" />
+      </ValueDefinitions>
+      <NodesDefinition Enabled="false" Limit="-1" DrawMode="None" Ghost="false" />
+    </EntityDefinition>
+    <EntityDefinition Name="floorplate" Limit="-1" ResizableX="false" ResizableY="false" Rotatable="false" RotateIncrement="15">
+      <Size>
+        <Width>16</Width>
+        <Height>16</Height>
+      </Size>
+      <Origin>
+        <X>0</X>
+        <Y>0</Y>
+      </Origin>
+      <ImageDefinition DrawMode="Image" ImagePath="..\floorplate.png" Tiled="true">
+        <RectColor A="255" R="0" G="64" B="128" />
+      </ImageDefinition>
+      <ValueDefinitions>
+        <ValueDefinition xsi:type="BoolValueDefinition" Name="toggled" Default="false" />
+      </ValueDefinitions>
+      <NodesDefinition Enabled="false" Limit="-1" DrawMode="None" Ghost="false" />
+    </EntityDefinition>
+    <EntityDefinition Name="player" Limit="-1" ResizableX="false" ResizableY="false" Rotatable="false" RotateIncrement="15">
+      <Size>
+        <Width>16</Width>
+        <Height>32</Height>
+      </Size>
+      <Origin>
+        <X>0</X>
+        <Y>0</Y>
+      </Origin>
+      <ImageDefinition DrawMode="Rectangle" ImagePath="" Tiled="false">
+        <RectColor A="255" R="128" G="64" B="0" />
+      </ImageDefinition>
+      <ValueDefinitions>
+        <ValueDefinition xsi:type="IntValueDefinition" Name="direction" Default="0" Min="0" Max="1" ShowSlider="false" />
+      </ValueDefinitions>
+      <NodesDefinition Enabled="false" Limit="-1" DrawMode="None" Ghost="false" />
+    </EntityDefinition>
+    <EntityDefinition Name="pillar" Limit="-1" ResizableX="false" ResizableY="false" Rotatable="false" RotateIncrement="15">
+      <Size>
+        <Width>16</Width>
+        <Height>160</Height>
+      </Size>
+      <Origin>
+        <X>0</X>
+        <Y>0</Y>
+      </Origin>
+      <ImageDefinition DrawMode="Image" ImagePath="..\pillar.png" Tiled="false">
+        <RectColor A="255" R="255" G="0" B="0" />
+      </ImageDefinition>
+      <ValueDefinitions>
+        <ValueDefinition xsi:type="IntValueDefinition" Name="fallblockcount" Default="0" Min="0" Max="100" ShowSlider="false" />
+      </ValueDefinitions>
+      <NodesDefinition Enabled="false" Limit="-1" DrawMode="None" Ghost="false" />
+    </EntityDefinition>
+    <EntityDefinition Name="startclimb" Limit="-1" ResizableX="false" ResizableY="false" Rotatable="false" RotateIncrement="15">
+      <Size>
+        <Width>16</Width>
+        <Height>16</Height>
+      </Size>
+      <Origin>
+        <X>0</X>
+        <Y>0</Y>
+      </Origin>
+      <ImageDefinition DrawMode="Rectangle" ImagePath="" Tiled="false">
+        <RectColor A="255" R="255" G="255" B="0" />
+      </ImageDefinition>
+      <ValueDefinitions />
+      <NodesDefinition Enabled="false" Limit="-1" DrawMode="None" Ghost="false" />
+    </EntityDefinition>
+    <EntityDefinition Name="stopclimb" Limit="-1" ResizableX="false" ResizableY="false" Rotatable="false" RotateIncrement="15">
+      <Size>
+        <Width>16</Width>
+        <Height>16</Height>
+      </Size>
+      <Origin>
+        <X>0</X>
+        <Y>0</Y>
+      </Origin>
+      <ImageDefinition DrawMode="Rectangle" ImagePath="" Tiled="false">
+        <RectColor A="255" R="255" G="128" B="64" />
+      </ImageDefinition>
+      <ValueDefinitions>
+        <ValueDefinition xsi:type="IntValueDefinition" Name="direction" Default="0" Min="0" Max="1" ShowSlider="true" />
+      </ValueDefinitions>
+      <NodesDefinition Enabled="false" Limit="-1" DrawMode="None" Ghost="false" />
+    </EntityDefinition>
+  </EntityDefinitions>
 </project>
