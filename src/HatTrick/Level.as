@@ -7,7 +7,7 @@ package HatTrick
 	 */
 	public class Level 
 	{
-		[Embed(source = "../../assets/levels/level_test.oel", mimeType = "application/octet-stream")] public static const testlevel:Class;
+		[Embed(source = "../../assets/levels/level_1.oel", mimeType = "application/octet-stream")] public static const testlevel:Class;
 		
 		public static var entities:Array;
 		public static var width:int;
@@ -39,42 +39,56 @@ package HatTrick
 			{
 				x = node.@x;
 				y = node.@y;
-				FP.world.add(new Lever(x, y));
+				entities.push(new Lever(x, y));
 			}
 			
 			for each (node in xml.Entities.dispenser)
 			{
 				x = node.@x;
 				y = node.@y;
-				FP.world.add(new ArrowShooter(x, y));
+				var id:int = node.@id;
+				var arrowShooter:ArrowShooter = new ArrowShooter(x, y);
+				arrowShooter.id = id;
+				entities.push(arrowShooter);
 			}
 			
 			for each (node in xml.Entities.spike)
 			{
 				x = node.@x;
 				y = node.@y;
-				FP.world.add(new Spikes(x, y));
+				entities.push(new Spikes(x, y));
 			}
 			
 			for each (node in xml.Entities.floorplate)
 			{
 				x = node.@x;
 				y = node.@y;
-				FP.world.add(new Button(x, y));
+				var targetId:int = node.@targetId;
+				for each (var object:Object in entities)
+				{
+					if (object is ArrowShooter && object.id == targetId)
+					{
+						entities.push(new Button(x, y, (Trap)(object)));
+						break;
+					}
+				}
 			}
 			
 			for each (node in xml.Entities.player)
 			{
 				x = node.@x;
 				y = node.@y;
-				FP.world.add(new Adventurer(x, y));
+				GameWorld.adventurer = new Adventurer(x, y);
+				GameWorld.hat = new Hat(x, y);
+				entities.push(GameWorld.adventurer);
+				entities.push(GameWorld.hat);
 			}
 			
 			for each (node in xml.Entities.pillar)
 			{
 				x = node.@x;
 				y = node.@y;
-				FP.world.add(new Pillar(x, y));
+				entities.push(new Pillar(x, y));
 			}
 		}
 		
