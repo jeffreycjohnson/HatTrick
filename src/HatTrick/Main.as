@@ -3,20 +3,26 @@ package HatTrick
 	import net.flashpunk.Engine;
 	import net.flashpunk.FP;
 	
-	[SWF(width="320", height="240", frameRate = "-1", backgroundColor="#000000")]
+	[SWF(width="640", height="480", frameRate = "-1", backgroundColor="#000000")]
 	
 	/**
 	 * Entry point into the game.
 	 */
 	public class Main extends Engine
-	{	
+	{
+		public static const SCREEN_WIDTH:int = 320;
+		public static const SCREEN_HEIGHT:int = 240;
+		public static const SCALING_FACTOR:int = 2;
+		
 		public function Main():void 
 		{
-			super(320, 240, 60, true);
+			super(SCREEN_WIDTH, SCREEN_HEIGHT, 60, true);
+			FP.screen.scale = SCALING_FACTOR;
 		}
 		
 		override public function init():void
 		{
+			FP.world = new GameWorld();
 		}
 	}
 }
