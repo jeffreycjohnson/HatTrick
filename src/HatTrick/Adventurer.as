@@ -19,6 +19,7 @@ package HatTrick
 		private static const stairsspeed:Number = 0.25;
 		
 		private var count:int = 0;
+		private static var walkanimspeed:Number = 15;
 		
 		public var state:int = state_walkright;
 		public static const state_walkright:int = 0;
@@ -40,6 +41,17 @@ package HatTrick
 		override public function update():void
 		{
 			var collidedObject:Entity;
+			if (state == state_walkright || state == state_walkleft)
+			{
+				if (count == walkanimspeed) sprite.setFrame(1, 0);
+				else if (count == walkanimspeed * 2 || count == 0)
+				{
+					sprite.setFrame(0, 0);
+					count = 0;
+				}
+				count++;
+			}
+			
 			if (state == state_walkright)
 			{
 				x += walkspeed;
@@ -56,6 +68,7 @@ package HatTrick
 				{
 					x -= walkspeed;
 					state = state_walkleft;
+					sprite.flipped = true;
 				}
 			}
 			else if (state == state_walkleft)
@@ -74,6 +87,7 @@ package HatTrick
 				{
 					x += walkspeed;
 					state = state_walkright;
+					sprite.flipped = false;
 				}
 			}
 			else if (state == state_ponder)
@@ -92,6 +106,10 @@ package HatTrick
 			}
 			else if (state == state_hatpickup)
 			{
+				if (count == 0)
+				{
+					sprite.setFrame(0, 1);
+				}
 				count++;
 				if (count == 60)
 				{
@@ -102,6 +120,7 @@ package HatTrick
 					trace("going back to prev state");
 					state = previousstate;
 					GameWorld.hat.onHead = true;
+					count = 0;
 				}
 			}
 		}
