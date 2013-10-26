@@ -13,6 +13,8 @@ package HatTrick
 		private const image:Class;
 		private var sprite:Spritemap = new Spritemap(image);
 		
+		private var fired:Boolean = false;
+		
 		public function ArrowShooter(x:Number=0, y:Number=0) 
 		{
 			super(x, y, sprite);
@@ -21,7 +23,9 @@ package HatTrick
 		
 		public override function activate():void
 		{
-			FP.world.add(new Arrow(x, y));
+			if(!fired)
+				FP.world.add(new Arrow(x, y));
+			fired = true;
 		}
 		
 	}

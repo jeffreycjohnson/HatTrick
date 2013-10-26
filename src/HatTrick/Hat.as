@@ -15,18 +15,18 @@ package HatTrick
 		private const image:Class;
 		private var sprite:Spritemap = new Spritemap(image);
 		
-		private var onHead:Boolean = true;
+		public var onHead:Boolean = true;
 		private var onGround:Boolean = false;
 		private var velocity:Point = new Point();
 		
 		private static const adventureroffset:Point = new Point(0, 0);
 		public static const inputkey:int = Key.SPACE;
 		
-		private static const popyspeed:Number = 0.7;
+		private static const popyspeed:Number = 0.6;
 		private static const fallspeed:Number = 0.3;
-		private static const yaccel:Number = 0.05;
+		private static const yaccel:Number = 0.03;
 		
-		private static const popxspeed:Number = 0.3;
+		private static const popxspeed:Number = 0.4;
 		private static const xaccel:Number = 0.05;
 		private var centerx:int = 0;
 		private var count:int = 0;
@@ -41,12 +41,16 @@ package HatTrick
 		
 		override public function update():void
 		{
-			if (Input.check(inputkey))
+			if (Input.check(inputkey) && onHead)
 			{
 				onHead = false;
+				count = 0;
+				onGround = false;
 				velocity.y = -popyspeed;
 				if (GameWorld.adventurer.state == Adventurer.state_walkright) velocity.x = -popxspeed;
 				else if (GameWorld.adventurer.state == Adventurer.state_walkleft) velocity.x = popxspeed;
+				// by default fall backwards, but if on a context sensitive area, fall in the specified direction
+				GameWorld.adventurer.pickuphat();
 			}
 			
 			if (onHead)
@@ -61,7 +65,7 @@ package HatTrick
 				{
 					velocity.y += yaccel;
 					if (velocity.y > fallspeed) velocity.y = fallspeed;
-					if (count == 20) velocity.x = 0;
+					if (count == 40) velocity.x = 0;
 				}
 				x += velocity.x;
 				y += velocity.y;

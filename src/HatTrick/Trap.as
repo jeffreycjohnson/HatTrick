@@ -2,7 +2,6 @@ package HatTrick
 {
 	import net.flashpunk.Entity;
 	import net.flashpunk.Graphic;
-	import net.flashpunk.Mask;
 	
 	/**
 	 * ...
@@ -10,10 +9,11 @@ package HatTrick
 	 */
 	public class Trap extends Entity 
 	{
+		public var id:int;
 		
-		public function Trap(x:Number=0, y:Number=0, graphic:Graphic=null, mask:Mask=null) 
+		public function Trap(x:Number=0, y:Number=0, graphic:Graphic=null) 
 		{
-			super(x, y, graphic, mask);
+			super(x, y, graphic);
 			
 		}
 		

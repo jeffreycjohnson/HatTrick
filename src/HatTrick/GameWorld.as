@@ -21,10 +21,6 @@ package HatTrick
 				add(Level.entities[i]);
 			}
 			
-			adventurer = new Adventurer(64, 144);
-			add(adventurer);
-			hat = new Hat();
-			add(hat);
 			add(new Background());
 			
 			FP.screen.color = 0x333333;

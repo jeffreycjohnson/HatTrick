@@ -12,9 +12,9 @@ package HatTrick
 		private const image:Class;
 		private var sprite:Spritemap = new Spritemap(image);
 		
-		public function Button(x:Number=0, y:Number=0) 
+		public function Button(x:Number=0, y:Number=0, target:Trap=null) 
 		{
-			super(x, y, sprite);
+			super(x, y, sprite, target);
 			
 			type = "Button";
 			collidable = true;

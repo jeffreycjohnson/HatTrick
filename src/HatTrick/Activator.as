@@ -2,6 +2,7 @@ package HatTrick
 {
 	import net.flashpunk.Entity;
 	import net.flashpunk.Graphic;
+	import net.flashpunk.graphics.Spritemap;
 	import net.flashpunk.Mask;
 	
 	/**
@@ -12,9 +13,9 @@ package HatTrick
 	{
 		private var boundTrap:Trap;
 		
-		public function Activator(x:Number=0, y:Number=0, trap:Trap=null) 
+		public function Activator(x:Number=0, y:Number=0, sprite:Spritemap=null, trap:Trap=null) 
 		{
-			super(x, y);
+			super(x, y, sprite);
 			boundTrap = trap;
 		}
 		
