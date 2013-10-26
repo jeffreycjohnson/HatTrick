@@ -57,6 +57,13 @@ package HatTrick
 				arrowShooter.id = id;
 				entities.push(arrowShooter);
 			}
+			
+			for each (node in xml.Entities.goal)
+			{
+				x = node.@x;
+				y = node.@y;
+				entities.push(new Goal(x, y));
+			}
 						
 			for each (node in xml.Entities.spike)
 			{
