@@ -1,4 +1,4 @@
-package HatTrick 
+ package HatTrick 
 {
 	import net.flashpunk.Entity;
 	import net.flashpunk.graphics.Image;
