@@ -20,6 +20,10 @@ package HatTrick
 		{
 			super(x, y);
 			graphic = new Image(tileset, new Rectangle(tilex * w, tiley * h, w, h));
+			type = "tile";
+			if (!(tilex == 3 && tiley == 2) && !(tilex == 4 && tiley == 2)) collidable = true;
+			else collidable = false;
+			setHitbox(w, h);
 		}
 		
 	}

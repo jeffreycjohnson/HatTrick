@@ -3,6 +3,8 @@ package HatTrick
 	import flash.geom.Point;
 	import net.flashpunk.Entity;
 	import net.flashpunk.graphics.Spritemap;
+	import net.flashpunk.utils.Input;
+	import net.flashpunk.utils.Key;
 	
 	/**
 	 * The greatest hat in all the land.
@@ -14,22 +16,66 @@ package HatTrick
 		private var sprite:Spritemap = new Spritemap(image);
 		
 		private var onHead:Boolean = true;
+		private var onGround:Boolean = false;
+		private var velocity:Point = new Point();
+		
 		private static const adventureroffset:Point = new Point(0, 0);
+		public static const inputkey:int = Key.SPACE;
+		
+		private static const popyspeed:Number = 0.7;
+		private static const fallspeed:Number = 0.3;
+		private static const yaccel:Number = 0.05;
+		
+		private static const popxspeed:Number = 0.3;
+		private static const xaccel:Number = 0.05;
+		private var centerx:int = 0;
+		private var count:int = 0;
 		
 		public function Hat(x:Number=0, y:Number=0) 
 		{
 			super(x, y, sprite);
 			type = "Hat";
 			collidable = true;
+			setHitbox(12, 4, -2, -6);
 		}
 		
 		override public function update():void
 		{
+			if (Input.check(inputkey))
+			{
+				onHead = false;
+				velocity.y = -popyspeed;
+				if (GameWorld.adventurer.state == Adventuter.state_walkright) velocity.x = -popxspeed;
+				else if (GameWorld.adventurer.state == Adventuter.state_walkleft) velocity.x = popxspeed;
+			}
+			
 			if (onHead)
 			{
 				x = GameWorld.adventurer.x + adventureroffset.x;
 				y = GameWorld.adventurer.y + adventureroffset.y;
 			}
+			else
+			{
+				count++; // animate according to value of count
+				if (!onGround)
+				{
+					velocity.y += yaccel;
+					if (velocity.y > fallspeed) velocity.y = fallspeed;
+					if (count == 20) velocity.x = 0;
+				}
+				x += velocity.x;
+				y += velocity.y;
+				if (collide("tile", x, y))
+				{
+					velocity.x = velocity.y = 0;
+					onGround = true;
+				}
+			}
+		}
+		
+		private function sign(n:Number):Number
+		{
+			return n / Math.abs(n);
 		}
 		
 	}
