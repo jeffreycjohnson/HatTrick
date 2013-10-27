@@ -2,6 +2,7 @@ package HatTrick
 {
 	import net.flashpunk.Entity;
 	import net.flashpunk.FP;
+	import net.flashpunk.graphics.Image;
 	import net.flashpunk.graphics.Spritemap;
 	import net.flashpunk.Sfx;
 	import net.flashpunk.utils.Input;
@@ -13,6 +14,8 @@ package HatTrick
 	{
 		[Embed(source = "../../assets/wisconsin_john.png")]
 		private const image:Class;
+		[Embed(source = "../../assets/wisconsin_ded.png")]
+		private const ded:Class;
 		private var sprite:Spritemap = new Spritemap(image, 16, 32);
 		
 		[Embed(source = "../../assets/music/alert.mp3")]
@@ -26,6 +29,9 @@ package HatTrick
 		private var count:int = 0;
 		private static const walkanimspeed:Number = 15;
 		private static const climbanimspeed:Number = 15;
+		private static const deathspeed1:int = 40;
+		private static const deathspeed2:int = 40;
+		private var deadbody:Entity;
 		
 		public var state:int = state_walkright;
 		public static const state_walkright:int = 0;
@@ -33,6 +39,7 @@ package HatTrick
 		public static const state_ponder:int = 2;
 		public static const state_climb:int = 3;
 		public static const state_hatpickup:int = 4;
+		public static const state_death:int = 5;
 		private var previousstate:int;
 		private var toClimb:int;
 		
@@ -163,11 +170,28 @@ package HatTrick
 				}
 				count++;
 			}
+			else if (state == state_death)
+			{
+				if (count == deathspeed1)
+				{
+					sprite.alpha = 0;
+					deadbody = new Entity(x - 8, y + 16, new Image(ded))
+					FP.world.add(deadbody);
+				}
+				else if (count == deathspeed2)
+				{
+					FP.world.remove(deadbody);
+				}
+				count++;
+			}
 		}
 		
 		public function die():void
 		{
-			
+			state = state_death;
+			sprite.setFrame(0, 4);
+			count = 0;
+			GameWorld.hat.deathpopoff();
 		}
 		
 		public function pickuphat():void

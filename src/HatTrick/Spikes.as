@@ -1,5 +1,6 @@
 package HatTrick 
 {
+	import net.flashpunk.FP;
 	import net.flashpunk.graphics.Spritemap;
 	import net.flashpunk.Sfx;
 	
@@ -59,7 +60,7 @@ package HatTrick
 					animCount = -1;
 					sprite.frame = extended ? 0 : 2;
 					
-					spikeFX.play(0.5);
+					if (FP.camera.y < 310 && FP.camera.y > 130) spikeFX.play(0.5);
 				}
 				
 				if (animCount >= FRAME_LENGTH) sprite.frame = 1;

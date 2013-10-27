@@ -84,6 +84,16 @@ package HatTrick
 			return n / Math.abs(n);
 		}
 		
+		public function deathpopoff():void
+		{
+			onHead = false;
+			count = 0;
+			onGround = false;
+			velocity.y = -popyspeed;
+			if (GameWorld.adventurer.state == Adventurer.state_walkright) velocity.x = -popxspeed;
+			else if (GameWorld.adventurer.state == Adventurer.state_walkleft) velocity.x = popxspeed;
+		}
+		
 	}
 
 }
