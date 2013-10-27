@@ -71,7 +71,7 @@ package HatTrick
 				}
 				x += velocity.x;
 				y += velocity.y;
-				if (collide("tile", x, y))
+				if (y > (GameWorld.adventurer.y + adventureroffset.y) && collide("tile", x, y))
 				{
 					velocity.x = velocity.y = 0;
 					onGround = true;

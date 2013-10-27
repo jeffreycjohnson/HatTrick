@@ -50,6 +50,10 @@ package HatTrick
 					count = 0;
 				}
 				count++;
+				if (collide("Stairs", x, y))
+				{
+					y -= walkspeed;
+				}
 			}
 			if (state != state_hatpickup && collide("Arrow", x, y))
 			{
