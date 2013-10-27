@@ -3,6 +3,7 @@ package HatTrick
 	import net.flashpunk.Entity;
 	import net.flashpunk.FP;
 	import net.flashpunk.graphics.Spritemap;
+	import net.flashpunk.Sfx;
 	import net.flashpunk.utils.Input;
 	
 	/**
@@ -13,6 +14,10 @@ package HatTrick
 		[Embed(source = "../../assets/wisconsin_john.png")]
 		private const image:Class;
 		private var sprite:Spritemap = new Spritemap(image, 16, 32);
+		
+		[Embed(source = "../../assets/music/alert.mp3")]
+		private const alertSound:Class;
+		private var alertFX:Sfx;
 		
 		private static const walkspeed:Number = 0.25;
 		private static const climbspeed:Number = 0.5;
@@ -37,6 +42,8 @@ package HatTrick
 			type = "adventurer";
 			collidable = true;
 			setHitbox(16, 32);
+			
+			alertFX = new Sfx(alertSound);
 		}
 		
 		override public function update():void
@@ -134,6 +141,8 @@ package HatTrick
 				if (count == 0)
 				{
 					sprite.setFrame(0, 1);
+					
+					alertFX.play();
 				}
 				count++;
 				if (count == 60)

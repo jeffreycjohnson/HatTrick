@@ -137,6 +137,7 @@ package HatTrick
 				GameWorld.hat = new Hat(x, y);
 				entities.push(GameWorld.adventurer);
 				entities.push(GameWorld.hat);
+				entities.push(new Alert(x, y));
 			}
 			
 			for each (node in xml.Entities.startclimb)

@@ -1,6 +1,7 @@
 package HatTrick 
 {
 	import net.flashpunk.graphics.Spritemap;
+	import net.flashpunk.Sfx;
 	
 	/**
 	 * ...
@@ -11,6 +12,10 @@ package HatTrick
 		[Embed(source = "../../assets/spikes.png")]
 		private const image:Class;
 		private var sprite:Spritemap = new Spritemap(image, 16, 32);
+		
+		[Embed(source = "../../assets/music/spike.mp3")]
+		private const spikeSound:Class;
+		private var spikeFX:Sfx;
 		
 		private var onBeat:Number;
 		private var offBeat:Number;
@@ -39,6 +44,8 @@ package HatTrick
 			extended = false;
 			
 			animCount = -1;
+			
+			spikeFX = new Sfx(spikeSound);			
 		}
 		
 		override public function update():void
@@ -51,6 +58,8 @@ package HatTrick
 				{
 					animCount = -1;
 					sprite.frame = extended ? 0 : 2;
+					
+					spikeFX.play(0.5);
 				}
 				
 				if (animCount >= FRAME_LENGTH) sprite.frame = 1;
