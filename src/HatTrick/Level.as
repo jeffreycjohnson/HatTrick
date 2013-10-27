@@ -58,6 +58,17 @@ package HatTrick
 				entities.push(arrowShooter);
 			}
 			
+			for each (node in xml.Entities.stairs)
+			{
+				x = node.@x;
+				y = node.@y;
+				id = node.@id;
+				var visible:Boolean = node.@visible == "True";
+				var stairs:Staircase = new Staircase(x, y, visible);
+				stairs.id = id;
+				entities.push(stairs);
+			}
+			
 			for each (node in xml.Entities.goal)
 			{
 				x = node.@x;
