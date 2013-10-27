@@ -11,6 +11,7 @@ package HatTrick
 	{
 		public static var adventurer:Adventurer;
 		public static var hat:Hat;
+		public static var goal:Goal;
 		
 		public function GameWorld() 
 		{
@@ -19,6 +20,7 @@ package HatTrick
 			for (var i:int = 0; i < Level.entities.length; i++)
 			{
 				add(Level.entities[i]);
+				if (Level.entities[i] is Goal) goal = Level.entities[i];
 			}
 			
 			FP.screen.color = 0x333333;

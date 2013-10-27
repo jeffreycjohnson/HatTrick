@@ -11,7 +11,7 @@ package HatTrick
 	{
 		[Embed(source = "../../assets/goal.png")]
 		private const image:Class;
-		private var sprite:Spritemap = new Spritemap(image);
+		private var sprite:Spritemap = new Spritemap(image, 16, 32);
 		
 		public var activated:Boolean = false;
 		
@@ -22,6 +22,12 @@ package HatTrick
 			type = "Goal";
 			collidable = true;
 			setHitbox(16, 32);
+			sprite.setFrame(0);
+		}
+		
+		public function activate():void
+		{
+			sprite.setFrame(1);
 		}
 		
 	}

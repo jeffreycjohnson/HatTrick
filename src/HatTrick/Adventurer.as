@@ -32,6 +32,7 @@ package HatTrick
 		private static const deathspeed1:int = 40;
 		private static const deathspeed2:int = 40;
 		private var deadbody:Entity;
+		private static const wintime:int = 180;
 		
 		public var state:int = state_walkright;
 		public static const state_walkright:int = 0;
@@ -40,6 +41,7 @@ package HatTrick
 		public static const state_climb:int = 3;
 		public static const state_hatpickup:int = 4;
 		public static const state_death:int = 5;
+		public static const state_winrar:int = 6;
 		private var previousstate:int;
 		private var toClimb:int;
 		
@@ -72,6 +74,13 @@ package HatTrick
 			if (state != state_hatpickup && collide("Arrow", x, y))
 			{
 				die();
+			}
+			if (collide("Goal", x, y))
+			{
+				state = state_winrar;
+				count = 0;
+				sprite.setFrame(0, 5);
+				GameWorld.goal.activate();
 			}
 
 			var collidedObject:Entity;
@@ -152,17 +161,12 @@ package HatTrick
 					
 					alertFX.play();
 				}
-				if (count == 30)
+				if (count == 60)
 				{
 					sprite.setFrame(0, 3);
 				}
-				if (count == 60)
-				{
-					trace("start pickup animation");
-				}
 				else if (count == 120)
 				{
-					trace("going back to prev state");
 					state = previousstate;
 					GameWorld.hat.onHead = true;
 					count = 0;
@@ -184,6 +188,14 @@ package HatTrick
 				}
 				count++;
 			}
+			else if (state == state_winrar)
+			{
+				count++;
+				if (count == wintime)
+				{
+					trace("done");
+				}
+			}
 		}
 		
 		public function die():void
@@ -199,8 +211,6 @@ package HatTrick
 			previousstate = state;
 			state = state_hatpickup;
 			count = 0;
-			// set animation frame to exclamation
-			trace("exclamation!");
 		}
 		
 	}

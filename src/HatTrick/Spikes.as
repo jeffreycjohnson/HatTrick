@@ -32,7 +32,7 @@ package HatTrick
 			
 			type = "Spikes";
 			collidable = true;
-			setHitbox(16, 32);
+			setHitbox(12, 32, -2);
 			this.y -= 16;
 			if (flipped)
 			{
