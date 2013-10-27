@@ -658,5 +658,6 @@
     <lever id="17" x="144" y="120" toggled="False" targetId="0" order="3" />
     <lever id="18" x="192" y="120" toggled="False" targetId="0" order="1" />
     <goal id="3" x="264" y="96" />
+    <stairs id="14" x="224" y="128" visible="False" />
   </Entities>
 </level>
