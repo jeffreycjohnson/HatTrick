@@ -52,6 +52,7 @@ package HatTrick
 			{
 				x = node.@x;
 				y = node.@y;
+				y -= 4;
 				id = node.@id;
 				var arrowShooter:ArrowShooter = new ArrowShooter(x, y);
 				arrowShooter.id = id;
