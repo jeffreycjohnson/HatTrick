@@ -35,7 +35,8 @@ package HatTrick
 					leverSequencePosition++;
 				else if(leverSequencePosition != order)
 					leverSequencePosition = 0;
-				activate();
+				if(order >= 10 || leverSequencePosition == order)
+					activate();
 				sprite.frame = 0;
 			}
 			super.update();
