@@ -23,7 +23,7 @@ package HatTrick
 		public static const inputkey:int = Key.SPACE;
 		
 		private static const popyspeed:Number = 0.6;
-		private static const fallspeed:Number = 0.3;
+		private static const fallspeed:Number = 0.4;
 		private static const yaccel:Number = 0.03;
 		
 		private static const popxspeed:Number = 0.4;

@@ -92,6 +92,7 @@ package HatTrick
 						state = state_climb;
 						toClimb = 32 * (Ladder)(collidedObject).climbHeight;
 						sprite.setFrame(0, 2);
+						sprite.flipped = true;
 					}
 				}
 				else if (collide("tile", x, y) || collide("Pillar", x, y))
@@ -135,18 +136,23 @@ package HatTrick
 				{
 					sprite.setFrame(0, 1);
 				}
-				count++;
+				if (count == 30)
+				{
+					sprite.setFrame(0, 3);
+				}
 				if (count == 60)
 				{
 					trace("start pickup animation");
 				}
-				else if (count == 140)
+				else if (count == 120)
 				{
 					trace("going back to prev state");
 					state = previousstate;
 					GameWorld.hat.onHead = true;
 					count = 0;
+					sprite.setFrame(0, 0);
 				}
+				count++;
 			}
 		}
 		
