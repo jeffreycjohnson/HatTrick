@@ -22,7 +22,7 @@ package HatTrick
 		{
 			super(x, y);
 			graphic = new Image(tileset, new Rectangle(tilex * w, tiley * h, w, h));
-			type = "tile";
+			type = "Painting";
 			
 			setHitbox(w, h);
 			
